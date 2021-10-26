@@ -2,29 +2,11 @@
 # -*- coding: utf-8 -*-
 
 from sys import argv
-from shutil import which
-from subprocess import CalledProcessError, check_output, run, STDOUT
+from pynorminette_package import test
 
-import pytest
-
-from enum import IntEnum
 from typing import List
 from termcolor import cprint
-
-
-class Status(IntEnum):
-    OK = 0
-    KO = 1
-
-
-def test(name: str, args: List[str], *, flags: List[str] = []) -> Status:
-    cprint(f"running: {name}", on_color="on_blue")
-    _name = which(name)
-    assert _name, f"no such path found for {name}"
-
-    if run([_name] + flags + args).returncode:
-        return Status.KO
-    return Status.OK
+import pytest
 
 
 def main(args: List[str]):

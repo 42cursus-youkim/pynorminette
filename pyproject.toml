@@ -1,0 +1,17 @@
+[build-system]
+  requires      = ["setuptools>=42", "wheel"]
+  build-backend = "setuptools.build_meta"
+
+[flake8]
+  exclude = [
+    '.git',
+    '__pycache__',
+    'docs/source/conf.py',
+    'old',
+    'build',
+    'dist',
+  ]
+  format = '${cyan}%(path)s${reset}:${yellow_bold}%(row)d${reset}:${green_bold}%(col)d${reset}: ${red_bold}%(code)s${reset} %(text)s'
+  ignore = [
+    'S101', # use of assert detected (useless with pytest)
+  ]

@@ -130,3 +130,6 @@ dmypy.json
 
 # vscode
 hackerton.code-workspace
+
+# others
+test_*.py

@@ -4,7 +4,7 @@ from typing import List
 
 from termcolor import cprint
 
-from .status import Status
+from status import Status
 
 
 def test(name: str, args: List[str], *, flags: List[str]) -> Status:

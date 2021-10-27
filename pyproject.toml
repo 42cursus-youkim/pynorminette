@@ -1,17 +1,13 @@
 [build-system]
-  requires      = ["setuptools>=42", "wheel"]
-  build-backend = "setuptools.build_meta"
+  requires = ["flit_core >=3.2,<4"]
+  build-backend = "flit_core.buildapi"
 
-[flake8]
-  exclude = [
-    '.git',
-    '__pycache__',
-    'docs/source/conf.py',
-    'old',
-    'build',
-    'dist',
-  ]
-  format = '${cyan}%(path)s${reset}:${yellow_bold}%(row)d${reset}:${green_bold}%(col)d${reset}: ${red_bold}%(code)s${reset} %(text)s'
-  ignore = [
-    'S101', # use of assert detected (useless with pytest)
-  ]
+[project]
+  name = "pynorminette_package"
+  authors = [{ name = "Younghyun Kim", email = "42.4.youkim@gmail.com" }]
+  readme = "README.md"
+  classifiers = ["License :: OSI Approved :: MIT License"]
+  dynamic = ["version", "description"]
+
+  [project.urls]
+    Home = "https://github.com/youkim005/pynorminette"

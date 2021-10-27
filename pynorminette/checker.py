@@ -2,26 +2,26 @@
 # -*- coding: utf-8 -*-
 
 from sys import argv
-from pynorminette_package import test, Status
-
 from typing import List
-from termcolor import cprint, colored
 
-test_suite: 'dict[str, "list[str]"]' = {
+from termcolor import colored, cprint
+
+from status import Status
+from tester import test
+
+TEST_SUITE: 'dict[str, "list[str]"]' = {
     "black": ["--check", "--line-length", "79"],
     "mypy": [],
     "flake8": [],
 }
 
 
-def main():
-    args = argv[1:]
+def check(args: List[str]):
     if not len(args):
-        cprint("no files specified!", on_color="on_red")
-        exit(1)
+        return cprint("no files specified!", on_color="on_red")
 
     results = [
-        test(k, args, flags=v) == Status.OK for k, v in test_suite.items()
+        test(k, args, flags=v) == Status.OK for k, v in TEST_SUITE.items()
     ]
     is_pass = Status(not all(results))
     score = colored(
@@ -32,4 +32,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    check(argv[1:])

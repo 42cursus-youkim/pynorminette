@@ -16,7 +16,8 @@ TEST_SUITE: 'dict[str, "list[str]"]' = {
 }
 
 
-def check(args: List[str]):
+def main():
+    args = argv[1:]
     if not len(args):
         return cprint("no files specified!", on_color="on_red")
 
@@ -33,5 +34,4 @@ def check(args: List[str]):
 
 
 if __name__ == "__main__":
-    check(["test_ko.py"])
-    check(["test_ok.py"])
+    main()

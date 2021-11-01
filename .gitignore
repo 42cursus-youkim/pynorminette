@@ -132,4 +132,5 @@ dmypy.json
 hackerton.code-workspace
 
 # others
-test_*.py
+test*.py
+learn.py
